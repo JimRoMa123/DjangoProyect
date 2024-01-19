@@ -1,0 +1,13 @@
+{% extends "personas/base.html" %} {% block title %} Gestión Instituto {% endblock %} {% block content%}
+<br><br><br><br><br>
+<div class="row">
+    <div class="col-md-12 col-xs-12 col-centered">
+        <form class="form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" id="submit">Registrarse</button>
+        </form>
+    </div>
+</div>
+{% block javascript%} {% endblock %} {% endblock %}

@@ -1,0 +1,32 @@
+{% extends "personas/base.html" %} {% block title %} Gestión Instituto {% endblock %} {% block content%}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Listado de Productos</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>stock</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for productos in producto %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{productos.idProducto}}</td>
+                        <td>{{productos.nombreProducto}}</td>
+                        <td>{{productos.stock}}</td>
+                        <td><a href="{% url 'editarProducto' productos.idProducto%}" class="btn btn-info">Editar</a></td>
+                        <td><a href="{% url 'eliminarProd' productos.idProducto%}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

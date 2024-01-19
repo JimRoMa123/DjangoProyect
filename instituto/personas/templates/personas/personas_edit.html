@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form action={% url "personasAdd" %} method="post">
+        {% csrf_token %}
+	    Rut:     <input type="text" name="rut" value="{{persona.rut}}" readonly><br>
+        Nombre:  <input type="text" name="nombre" value="{{persona.nombre}}"><br>
+		edad:    <input type="number" name="edad" value="{{persona.edad}}"><br>
+       
+
+        <input type="submit" name="opcion" value="Actualizar">
+		<input type="submit" name="opcion" value="Volver">
+		
+		<br>
+    </form>
+
+
+
+    <div id="idMensajes">
+
+        {% if mensaje%}
+           {{mensaje}}
+        
+        {% endif %}   
+    </div>
+</body>
+</html>

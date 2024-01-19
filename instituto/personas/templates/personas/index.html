@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal</title>
+</head>
+<body>
+    <!--
+        https://uniwebsidad.com/libros/django-1-0/capitulo-4/etiquetas-basicas-de-plantillas-y-filtros
+
+        Paso 1:  context pasar un nombre desde la vista al template
+        vista
+         context={'nombre':'Cristián García'}
+        
+        body
+          {{nombre}}
+
+        Paso 2:  context pasar campos distintos y mostrar en el template  
+            context={'nombre':'Cristián García',
+                    'carrera':'Analista Programador',
+                    'idJornada': 2
+                    }
+
+        Paso 3: template, uso de etiquetas para filtros, convertir idJornada en un texto.
+            view
+            context={
+             'nombre':'Cristián García',
+             'carrera':'Analista Programador',
+             'idJornada': 2             
+            }
+
+            template
+                {% if 1 in idJornada %}
+                    Diurna
+                {% else  %}
+                    Vespertina
+                {% endif %}
+
+        
+        Paso 4: context pasar una lista, template recorrer la lista
+        view
+            dias =["lunes","martes","miércoles","jueves","viernes","sábado"]
+            context={
+                'nombre':'Cristián García',
+                'carrera':'Analista Programador',
+                'idJornada': 2,
+                'dias': dias
+               
+                }
+
+        template
+            <ul>
+            {% for dia in dias %}
+                <li>{{ dia }}</li>
+            {% endfor %}
+            </ul>
+
+        Paso 5:  Context pasar una lista de objetos, el template debe recorrer los objetos
+        view
+        class Persona:
+            rut=""
+            nombre=""
+            edad=0
+
+            def __init__(self,rut,nombre,edad):
+                self.rut = rut
+                self.nombre = nombre
+                self.edad = edad
+
+            def getRut(self):
+                return self.rut
+
+            def getNombre(self):
+                return self.nombre
+
+            def getEdad(self):
+                return self.edad    
+
+            def toString(self):
+                return self.rut+", "+self.nombre+", "+self.edad
+
+           adetro del def
+            p1 = Persona("1-1","Susana",22)
+            p2 = Persona("2-2","Juan",19)
+            p3 = Persona("3-3","Sandra",20)
+
+            personas = [p1,p2,p3]  
+
+            context={
+             'nombre':'Cristián García',
+             'carrera':'Analista Programador',
+             'idJornada': 2,
+             'dias': dias,
+             'personas': personas
+            }
+        template:
+  
+           <ul>
+                {% for persona in personas %}
+                    <li>{{ persona.rut }}</li>
+                {% endfor %}
+            </ul>
+    
+    -->
+    Nombre: {{nombre}}  <br>
+    Carrera: {{carrera}}  <br>
+    Jornada:  {{idJornada}} <br>
+    Jornada: 
+    {% if 1 in idJornada %}
+        Diurna
+    {% else  %}
+        Vespertina
+    {% endif %}
+    <br>
+    <ul>
+        {% for dia in dias %}
+            <li>{{ dia }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    
+    <ul>
+        {% for persona in personas %}
+            <li>{{ persona.rut }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+</body>
+</html>

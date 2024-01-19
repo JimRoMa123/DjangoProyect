@@ -1,0 +1,28 @@
+{% extends "personas/base.html" %} {% block title %} Gestión Instituto {% endblock %} {% block content%}
+
+    <br><br>
+
+    <div class="row">
+
+         {% for producto in productos %}
+
+                    
+                    <br><br><br>
+                        <h2 class="col-2">{{producto.nombreProducto}} : </h2>
+                        
+                        <p class="col-1" style="color: red;"> A tan solo ${{producto.precio}} </p>
+                        
+                        <p class="col-4" style="border: 2cm;"><mark>Actualmente quedan solo : {{producto.stock}}</mark> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque dolorem magnam incidunt error possimus. Quam sunt voluptatibus cupiditate nesciunt commodi, quod, nostrum earum nemo voluptate nam quibusdam provident labore sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab eius vel, officia placeat sunt est velit perferendis culpa excepturi delectus. Iure reiciendis quod nemo nisi dolorem eaque quibusdam ullam expedita! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia distinctio reprehenderit autem doloremque totam sint ducimus aliquam consequuntur eveniet alias ipsa magnam veniam facilis sit tenetur, animi et vero inventore. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, earum soluta ad modi libero aut sapiente nihil commodi alias voluptas! Temporibus provident quas architecto molestiae minima esse neque dignissimos quaerat!</p>
+                    
+                        <img src="{{producto.foto.url}}" style="width:40%" class="col-5" alt="{{producto.nombreProducto}}">
+             {%endfor%}
+
+        
+    </div>
+
+
+        
+
+   
+    
+{% block javascript%} {% endblock %} {% endblock %}
